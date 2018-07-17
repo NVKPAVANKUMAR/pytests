@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver import ActionChains
 
 def test_dragNdrop():
-    driver = webdriver.Chrome("DriverJars/chromedriver.exe")
+    driver = webdriver.Chrome("DriverJars/chromedriver")
     driver.maximize_window()
     driver.get("http://jqueryui.com/resources/demos/droppable/default.html");
     source = driver.find_element_by_xpath(".//*[@id='draggable']")
