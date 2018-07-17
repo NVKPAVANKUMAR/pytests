@@ -40,6 +40,7 @@ def test_wallet_spend_cash_raises_exception(empty_wallet):
 @pytest.mark.parametrize("earned,spent,expected", [
     (30, 10, 20),
     (20, 2, 18),
+    (500,400,100)
 ])
 def test_transaction(earned, spent, expected, empty_wallet):
     empty_wallet.add_cash(earned)
