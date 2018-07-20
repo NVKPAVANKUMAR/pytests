@@ -15,10 +15,14 @@ def wallet():
 
 
 @pytest.fixture
-def banker():
+def empty_banker():
     '''Returns a Banker instance with a zero balance'''
     return Banker()
 
+@pytest.fixture
+def banker():
+    '''Returns a Banker instance with a balance of 20'''
+    return Banker(10000)
 
 def test_default_initial_amount(empty_wallet):
     assert empty_wallet.balance == 0
@@ -53,6 +57,8 @@ def test_transaction(earned, spent, expected, empty_wallet):
     empty_wallet.spend_cash(spent)
     assert empty_wallet.balance == expected
 
+def test_initialBalance(empty_banker):
+    assert banker.total == 0
 
 def test_giveLoan_within_limit(banker):
     banker.giveLoan(10000)
@@ -67,4 +73,3 @@ def test_collectLoan(banker):
 def test_giveLoan_morethan_limit(banker):
     with pytest.raises(InsufficientFundsException):
         banker.giveLoan(11000)
-

@@ -25,7 +25,7 @@ class Wallet(object):
 
 
 class Banker:
-    def __init__(self, total_amount=10000):
+    def __init__(self, total_amount=0):
         self.total = total_amount
 
     def giveLoan(self, loan_amount):
@@ -36,7 +36,5 @@ class Banker:
 
     def collectLoanAmount(self, payment):
         self.total += payment
-
-
 
 
