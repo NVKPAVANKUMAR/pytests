@@ -58,7 +58,7 @@ def test_transaction(earned, spent, expected, empty_wallet):
     assert empty_wallet.balance == expected
 
 def test_initialBalance(empty_banker):
-    assert banker.total == 0
+    assert empty_banker.total == 0
 
 def test_giveLoan_within_limit(banker):
     banker.giveLoan(10000)
