@@ -66,5 +66,5 @@ def test_collectLoan(banker):
 
 def test_giveLoan_morethan_limit(banker):
     with pytest.raises(InsufficientFundsException):
-        banker.giveLoan(1000)
-    assert banker.total == 0
+        banker.giveLoan(11000)
+
