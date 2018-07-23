@@ -32,9 +32,20 @@ class Banker:
         if self.total >= loan_amount:
             self.total -= loan_amount
         else:
-            raise InsufficientFundsException('Not enough balance to transfer {}'.format(loan_amount))
+            raise InsufficientFundsException('Not enough balance to give loan {}'.format(loan_amount))
 
     def collectLoanAmount(self, payment):
         self.total += payment
+
+
+class Customer(Banker):
+    def __init__(self, accountBalance=0):
+        self.balance = accountBalance
+
+    def updateBalance(self, amountCredited):
+        self.balance += amountCredited
+
+    def payloanAmount(self, amountDeduction):
+        self.balance -= amountDeduction
 
 
